@@ -1,0 +1,34 @@
+---
+- name: Creating ansible machines for workshops ran by the BEST instructor in the world (who is me of course)!!
+  hosts: all
+  gather_facts: no
+  connection: ssh
+
+  tasks:
+  - name: Configuring network 
+    command: /root/config.sh student0 10
+  - name: Rebooting
+    command: reboot
+  - pause: seconds=30
+
+  tasks:
+  - name: Configuring network
+    command: /root/config.sh student0 11
+  - name: Rebooting
+    command: reboot
+  - pause: seconds=30
+
+  tasks:
+  - name: Configuring network
+    command: /root/config.sh student0 12
+  - name: Rebooting
+    command: reboot
+  - pause: seconds=30
+  
+  tasks:
+  - name: Configuring network
+    command: /root/config.sh student0 13
+  - name: Rebooting
+    command: reboot
+  - pause: seconds=30
+

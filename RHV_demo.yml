@@ -1,0 +1,204 @@
+---
+- name: Creating ansible machines for workshops
+  hosts: localhost
+  gather_facts: no
+  connection: ssh
+
+  tasks:
+    - name: Create machine 0 for the instructor
+      ovirt_vm:
+        name: 3_agl_RHEL8_0
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.10
+          nic_netmask: 255.255.0.0
+          nic_gateway: 172.27.0.1
+          dns_servers: 172.27.0.50
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student0.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 1 for the student 
+      ovirt_vm:
+        name: 3_agl_RHEL8_1
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.11
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student1.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 2 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_2
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.12
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student2.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 3 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_3
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.13
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student3.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 4 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_4
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.14
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student4.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 5 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_5
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.15
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student5.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 6 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_6
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.16
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student6.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 7 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_7
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.17
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student7.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 8 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_8
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.18
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student8.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 9 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_9
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.19
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student9.lab.redhat.lab
+          user_name: root
+          root_password: student
+
+    - name: Create machine 10 for the student
+      ovirt_vm:
+        name: 3_agl_RHEL8_10
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.20
+          nic_netmask: 255.255.0.0
+          dns_servers: 172.27.0.50
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: student10.lab.redhat.lab
+          user_name: root
+          root_password: student

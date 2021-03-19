@@ -1,0 +1,18 @@
+---
+- name: Creating ansible machines for workshops ran by the BEST instructor in the world (who is me of course)!!
+  hosts: localhost
+  gather_facts: no
+  connection: ssh
+
+  tasks:
+    - name: Creates zero VM (Well, I need an environment for MASTER INSTRUCTOR - who is me :] )
+      ovirt_vm:
+        state: running
+        name: 000000000000000
+        template: 3_agl_ansible_tmpt
+        cluster: Default
+        wait: true
+    - name: Configure network (by script, as cloud-init is shit, and does not work properly)
+      command: sudo /root/config.sh student0 10
+    - name: Reboot so changes are persisted (because I'm lazy, and I do not want to play with ansible too much!)
+      command: sudo reboot

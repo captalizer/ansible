@@ -1,0 +1,23 @@
+---
+- name: Creating RHEL8 machine for best workshops in the world!!
+  hosts: localhost
+  gather_facts: no
+  connection: ssh
+
+  tasks:
+    - name: Create machin for the (best!) student in the world!!
+      ovirt_vm:
+        name: "{{name}}"
+        template: 3_agl_RHEL8_tmpt
+        state: running
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: "{{IP}}"
+          nic_netmask: 255.255.0.0
+          nic_gateway: 172.27.0.1
+          nic_name: enp1s0
+          nic_on_boot: true
+          host_name: "{{host}}"
+          user_name: root
+          root_password: student

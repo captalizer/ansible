@@ -1,0 +1,28 @@
+---
+- name: Creating ansible machines for workshops ran by the BEST instructor in the world (who is me of course)!!
+  hosts: localhost
+  gather_facts: no
+  connection: ssh
+
+  tasks:
+    - name: Run VM with cloud init
+      ovirt_vm:
+        name: 0_TEST_AREK_ANSIBLE_TEST
+        template: tmp
+        cluster: Default
+        cloud_init:
+          nic_boot_protocol: static
+          nic_ip_address: 172.27.3.10
+          nic_netmask: 255.255.0.0
+          nic_gateway: 172.27.0.1
+          nic_name: ovirtmgmt
+          nic_on_boot: true
+          host_name: student0.lab.redhat.lab
+          custom_script: |
+            write_files:
+             - content: |
+                 Hello, world!
+               path: /tmp/greeting.txt
+               permissions: '0644'
+          user_name: root
+          root_password: student
